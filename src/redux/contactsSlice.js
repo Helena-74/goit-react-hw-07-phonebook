@@ -8,18 +8,37 @@ const contactsSlice = createSlice({
     error: null,
   },
   reducers: {
-    deleteContact: (state, action) => {
-      state.items = state.items.filter(
-        (contact) => contact.id !== action.payload
-      );
+    fetchingInProgress(state) {
+      state.isLoading = true;
     },
-    addContact: (state, action) => {
-      state.items = [...state.items, action.payload];
+    fetchingSuccess(state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.items = action.payload;
+    },
+    fetchingError(state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
     },
   },
+
+
+  // reducers: {
+  //   deleteContact: (state, action) => {
+  //     state.items = state.items.filter(
+  //       (contact) => contact.id !== action.payload
+  //     );
+  //   },
+  //   addContact: (state, action) => {
+  //     state.items = [...state.items, action.payload];
+  //   },
+  // },
 });
 
-export const { deleteContact, addContact } = contactsSlice.actions;
+export const { fetchingInProgress, fetchingSuccess, fetchingError } =
+contactsSlice.actions;
+
+// export const { deleteContact, addContact } = contactsSlice.actions;
 
 export default contactsSlice.reducer;
 
