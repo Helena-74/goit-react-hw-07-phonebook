@@ -39,6 +39,17 @@ export const deleteContacts = createAsyncThunk(
     }
   }
 );
+
+
+// import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { API_BASE_URL } from 'redux/selectors';
+
+// export const fetchContacts = createAsyncThunk('contacts/fetchAll', async () => {
+//   const response = await fetch(`${API_BASE_URL}/contacts`);
+//   const data = await response.json();
+//   return data;
+// });
+
 // export const addContact = createAsyncThunk('contacts/addContact', async (contactData) => {
 //   const response = await fetch(`${API_BASE_URL}/contacts`, {
 //     method: 'POST',
