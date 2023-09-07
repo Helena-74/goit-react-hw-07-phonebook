@@ -48,6 +48,8 @@ contactsSlice.actions;
 export default contactsSlice.reducer;
 
 export const persistedContactsSlice = contactsSlice.reducer;
+
+
   // reducers: {
   //   fetchingInProgress(state) {
   //     state.isLoading = true;
