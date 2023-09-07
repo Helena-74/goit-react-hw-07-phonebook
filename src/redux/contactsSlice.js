@@ -1,26 +1,67 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchContacts, addContacts, deleteContacts } from './operations';
 
-const contactsSlice = createSlice({
-  name: 'contacts',
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
-  reducers: {
-    fetchingInProgress(state) {
-      state.isLoading = true;
+  const handlePending = state => {
+    state.isLoading = true;
+  };
+  const handleRejected = (state, action) => {
+    state.isLoading = false;
+    state.error = action.payload;
+  };
+
+  const contactsSlice = createSlice({
+    name: 'contacts',
+    initialState: {
+      items: [],
+      isLoading: false,
+      error: null,
     },
-    fetchingSuccess(state, action) {
+  extraReducers: {
+    [fetchContacts.pending]: handlePending,
+    [addContacts.pending]: handlePending,
+    [deleteContacts.pending]: handlePending,
+    [fetchContacts.rejected]: handleRejected,
+    [addContacts.rejected]: handleRejected,
+    [deleteContacts.rejected]: handleRejected,
+    [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     },
-    fetchingError(state, action) {
+    [addContacts.fulfilled](state, action) {
       state.isLoading = false;
-      state.error = action.payload;
+      state.error = null;
+      state.items.push(action.payload);
+    },
+    [deleteContacts.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.items.findIndex(contacts => contacts.id === action.payload);
+      state.items.splice(index, 1);
     },
   },
+});
+
+export const { fetchingInProgress, fetchingSuccess, fetchingError } =
+contactsSlice.actions;
+
+export default contactsSlice.reducer;
+
+export const persistedContactsSlice = contactsSlice.reducer;
+  // reducers: {
+  //   fetchingInProgress(state) {
+  //     state.isLoading = true;
+  //   },
+  //   fetchingSuccess(state, action) {
+  //     state.isLoading = false;
+  //     state.error = null;
+  //     state.items = action.payload;
+  //   },
+  //   fetchingError(state, action) {
+  //     state.isLoading = false;
+  //     state.error = action.payload;
+  //   },
+  // },
 
 
   // reducers: {
@@ -33,17 +74,9 @@ const contactsSlice = createSlice({
   //     state.items = [...state.items, action.payload];
   //   },
   // },
-});
-
-export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-contactsSlice.actions;
+// });
 
 // export const { deleteContact, addContact } = contactsSlice.actions;
-
-export default contactsSlice.reducer;
-
-export const persistedContactsSlice = contactsSlice.reducer;
-
 
 
 // import { createSlice } from '@reduxjs/toolkit';
