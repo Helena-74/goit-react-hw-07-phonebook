@@ -45,7 +45,7 @@ import { fetchContacts, addContacts, deleteContacts } from './operations';
 export const { fetchingInProgress, fetchingSuccess, fetchingError } =
 contactsSlice.actions;
 
-export default contactsSlice.reducer;
+// export default contactsSlice.reducer;
 
 export const persistedContactsSlice = contactsSlice.reducer;
 
