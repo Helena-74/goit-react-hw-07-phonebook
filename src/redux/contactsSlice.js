@@ -42,9 +42,11 @@ import { fetchContacts, addContacts, deleteContacts } from './operations';
   },
 });
 
+export const persistedContactsSlice = contactsSlice.reducer;
+
 // export default contactsSlice.reducer;
 
-export const persistedContactsSlice = contactsSlice.reducer;
+// export const persistedReducer = contactsSlice.reducer;
 
 
   
