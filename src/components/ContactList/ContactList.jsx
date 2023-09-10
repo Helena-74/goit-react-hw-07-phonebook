@@ -10,7 +10,7 @@ function ContactList() {
   return (
     <ul>
     {contacts.map((contact) => (
-      <li key={contacts.id}>
+      <li key={contact.id}>
         {contact.name}: {contact.phone}
         <button onClick={() => dispatch(deleteContacts(contact.id))}>
           Delete
