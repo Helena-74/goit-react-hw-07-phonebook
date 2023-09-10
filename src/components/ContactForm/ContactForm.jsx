@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './ContactForm.module.css';
 import { addContacts } from 'redux/operations';
+import { getContacts } from 'redux/selectors';
 
 function ContactForm() {
   const dispatch = useDispatch();
+  const allContacts = useSelector(getContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [error, setError] = useState('');
@@ -17,6 +19,15 @@ function ContactForm() {
       return;
     }
 
+    const isContactExists = allContacts.some(
+      (contact) => contact.name.toLowerCase() === name.toLowerCase() || contact.number === number
+    );
+
+    if (isContactExists) {
+      setError('This contact already exists.');
+
+      return;
+    }
     try {
       await dispatch(addContacts({ name, number }));
       setName('');
