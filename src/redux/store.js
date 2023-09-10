@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { filterReducer } from './filterSlice';
-// import persistStore from 'redux-persist/es/persistStore';
 
 import { persistedContactsSlice } from './contactsSlice';
 
