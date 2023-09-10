@@ -15,7 +15,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 
-// import { PersistGate } from 'redux-persist/lib/integration/react';
-{/* <PersistGate loading={null} persistor={persistor}>
-<App />
-</PersistGate> */}

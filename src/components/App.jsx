@@ -11,7 +11,7 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
-  // const { items, isLoading, error } = useSelector(getContacts);
+
 
   useEffect(() => {
     dispatch(fetchContacts());
