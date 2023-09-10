@@ -1,0 +1,34 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+.list li button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.list li button:hover {
+  background-color: darkred;
+}

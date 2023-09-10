@@ -40,9 +40,10 @@ function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label>
+      <label className={styles.label}>
         Name
         <input
+          className={styles.input}
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -51,9 +52,10 @@ function ContactForm() {
           required
         />
       </label>
-      <label>
+      <label className={styles.label}>
         Number
         <input
+          className={styles.input}
           type="tel"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
@@ -62,7 +64,7 @@ function ContactForm() {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button  className={styles.button} type="submit">Add contact</button>
       {error && <p className={styles.error}>{error}</p>}
     </form>
   );
