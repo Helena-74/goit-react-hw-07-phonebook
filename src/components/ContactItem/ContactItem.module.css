@@ -5,6 +5,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   margin-top: 5px;
+  margin-bottom: 10px;
   border-radius: 4px;
 }
 
@@ -27,23 +28,3 @@
   background-color: #4526e1;
 }
 
-/* .item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 4px 8px;
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-}
-
-button:hover {
-  background-color: #4526e1;
-} */
