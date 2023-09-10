@@ -9,10 +9,10 @@ function ContactList() {
 
   return (
     <ul>
-      {contacts.map((contact) => (
-        <li key={contact.id}>
-          {contact.name}: {contact.number}
-          <button onClick={() => dispatch(deleteContacts(contact.id))}>
+      {contacts.map((contacts) => (
+        <li key={contacts.id}>
+          {contacts.name}: {contacts.number}
+          <button onClick={() => dispatch(deleteContacts(contacts.id))}>
             Delete
           </button>
         </li>
